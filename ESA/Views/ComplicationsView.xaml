@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ESA.Views.ComplicationsView" 
+    xmlns:mrkupExt="clr-namespace:ESA.MarkupExtensions;assembly=ESA">
+
+
+    <ContentView.Content>
+        <StackLayout>
+            <Label Text="Complications" Style="{StaticResource ViewTitle}"/>
+            <StackLayout x:Name="compFlexLayout" Style="{StaticResource FlexLayout}" BindableLayout.ItemsSource="{Binding Complications}" >
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" >
+                            <!--Step Text-->
+                            <Label Text="{Binding ComplicationName}" Style="{StaticResource CompContent}"/>
+                            <ImageButton Source="{Binding Image}" Style="{StaticResource CompImage}" Clicked="ComplicationImage_Clicked"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+    
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FlexLayout" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+            </Style>
+            <Style x:Key="CompContent" TargetType="Label">
+                <Setter Property="TextColor" Value="#3f3f3f" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="CompImage" TargetType="ImageButton">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+         
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+</ContentView>

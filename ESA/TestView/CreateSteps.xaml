@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:ESA.Models.CustomRenderers"
+             xmlns:testview="clr-namespace:ESA.TestView"
+             mc:Ignorable="d"
+             x:Class="ESA.TestView.CreateSteps" Title="Steps">
+    <ContentPage.ToolbarItems >
+        <!--Clicked="Search_Clicked"-->
+        <ToolbarItem x:Name="Database" Text="Save" Clicked="Database_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <testview:CustTextEditor x:Name="TextEditor"/>
+        <!--<StackLayout>
+            <testview:CustListEditor x:Name="listEditor"/>
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

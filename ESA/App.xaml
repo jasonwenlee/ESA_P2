@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:video="clr-namespace:ESA.Models.VideoView"
+             mc:Ignorable="d"
+             x:Class="ESA.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--Common-->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#0F0F0F"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+            <Style x:Key="DetailsPage" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style TargetType="video:VideoPlayer">
+                <Setter Property="BackgroundColor" Value="#111"/>
+            </Style>
+            <Style x:Key="FlexLayout" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+            </Style>
+            <Style x:Key="RelatedProcedureButton" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="TextColor" Value="#5070ff" />
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <!--About Page-->
+            <Style x:Key="PersonImage" TargetType="Image" >
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="150" />
+            </Style>
+            <Style x:Key="PersonName" TargetType="Label" >
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="PersonDescription" TargetType="Label" >
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Margin" Value="10,0,10,0" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <!--Procedure Info-->
+            <Style x:Key="ProcedureTitle" TargetType="Label" >
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="ProcedureDescription" TargetType="Label" >
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="#3f3f3f"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+            </Style>
+            <Style x:Key="ProcedureCategories" TargetType="Label" >
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="#F6A800"/>
+            </Style>
+            <Style x:Key="ProcedureInfo" TargetType="Label" >
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="#3f3f3f"/>
+            </Style>
+            <!--View Title-->
+            <Style x:Key="ViewTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="Subtitle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <!--Key Point-->
+            <Style x:Key="KeyPoint" TargetType="Label" >
+                <Setter Property="TextColor" Value="#404040" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+            <Style x:Key="KeyPointBold" TargetType="Label" >
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="ProcedureLink" TargetType="Button">
+                <Setter Property="TextColor" Value="#3399FF" />
+                <Setter Property="Margin" Value="32,0,0,0" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HeightRequest" Value="18" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+            <!--Video Player-->
+            <Style x:Key="VideoControlsTop" TargetType="Image">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="WidthRequest" Value="32" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style x:Key="VideoCollapseTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="VideoControlsCollapse" TargetType="Image">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="WidthRequest" Value="32" />
+                <Setter Property="Margin" Value="5, 10" />
+            </Style>
+            <Style x:Key="VideoCollapsePosition" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="5,0,0,0" />
+            </Style>
+            <!--Variations-->
+            <Style x:Key="VariationHeader" TargetType="Span">
+                <Setter Property="TextColor" Value="#404040" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="VariationSubHeader" TargetType="Span">
+                <Setter Property="TextColor" Value="#606060" />
+                <Setter Property="FontAttributes" Value="Italic" />
+            </Style>
+            <Style x:Key="VariationContent" TargetType="Span">
+                <Setter Property="TextColor" Value="#404040" />
+            </Style>
+            <!--Info-->
+            <Style x:Key="InfoButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HeightRequest" Value="30" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

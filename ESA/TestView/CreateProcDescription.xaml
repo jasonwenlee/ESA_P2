@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:ESA.Models.CustomRenderers"
+             mc:Ignorable="d"
+             x:Class="ESA.TestView.CreateProcDescription" Title="Procedure Info.">
+    <ContentPage.ToolbarItems>
+        <!--Clicked="Search_Clicked"-->
+        <ToolbarItem x:Name="Database" Text="Save" Clicked="SaveButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout x:Name="TitleLayer" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
+            <custom:CustomEntry x:Name="TitleEntry" Placeholder="Title" FontAttributes="Bold" FontSize="30"></custom:CustomEntry>
+            <custom:CustomEditor x:Name="DescriptionEditor" Placeholder="Description" FontSize="18" AutoSize="TextChanges"></custom:CustomEditor>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
