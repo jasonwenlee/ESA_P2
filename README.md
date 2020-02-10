@@ -2,8 +2,10 @@
 # Encyclopedia for oculoplastic surgery and diagnosis
 
 This is an open source encyclopedia-esque mobile application detailing different oculoplastic surgical procedures and diagnosis. The aim of this application is to provide a universal template for other medical procedures outside the field of oculoplastic. The application is built using a Model-View-ViewModel (MVVM) structure with an ASP.NET backend framework.
-
-![](blob/readme/images/gif1.gif)
+## Images
+Front Page list view | Content view
+------------------------- | -------------------------
+![App gif 1](https://github.com/jasonwenlee/ESA_P2/blob/readme/images/gif1.gif) | ![App gif 2](https://github.com/jasonwenlee/ESA_P2/blob/readme/images/gif3.gif) 
 
 ## Getting Started
 ### Prerequisites
