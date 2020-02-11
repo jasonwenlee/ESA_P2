@@ -5,7 +5,7 @@ This is an open source encyclopedia-esque mobile application detailing different
 ### Overview of app structure
 The design of the application consists of a front page listview, video player, and five different content pages for each oculoplastic procedure. Each content page and procedure will have its own respective Model, ViewModel, and View. The video player appended at the top of each content page will play a video of the procedure and can be minimised to allow more view of the content. 
 
-## Images
+#### Images
 Front page list view  | Content page view
 --------------------- | ------------------
 <img src="https://github.com/jasonwenlee/ESA_P2/blob/readme/images/gif1.gif" width="314" height="628"> | <img src="https://github.com/jasonwenlee/ESA_P2/blob/readme/images/gif3.gif" width="314" height="628">
