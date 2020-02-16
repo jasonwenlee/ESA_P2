@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using Android.Content;
 using Android.Views.InputMethods;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-using Xamarin.Essentials;
 
 namespace ESA.Droid
 {
@@ -30,6 +29,7 @@ namespace ESA.Droid
             LoadApplication(new App());
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
         }
+
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

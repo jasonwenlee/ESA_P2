@@ -1,5 +1,4 @@
 ﻿using ESA.Models.Model;
-using ESA.TestView;
 using ESA.ViewModels;
 using ESA.Views;
 using System;
@@ -83,9 +82,9 @@ namespace ESA
             await activeButtonBox.LayoutTo(rectangle, 500, Easing.CubicInOut);
         }
 
-        private async void Database_Clicked(object sender, EventArgs e)
+        private void Database_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CreateProcDescription());
+
         }
     }
 }

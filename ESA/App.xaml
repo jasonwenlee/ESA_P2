@@ -8,7 +8,6 @@
              x:Class="ESA.App">
     <Application.Resources>
         <ResourceDictionary>
-
             <!--Common-->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#0F0F0F"/>
