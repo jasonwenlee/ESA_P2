@@ -68,23 +68,6 @@ namespace ESA.Views
             ResourceVideoSource source = new ResourceVideoSource();
             UriVideoSource uriSource = new UriVideoSource();
             uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-
-            //switch (Device.RuntimePlatform)
-            //{
-            //    case Device.iOS:
-            //        uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-            //        //source.Path = "Videos/Brain_Eyes_Vid.mp4";                    
-            //        break;
-            //    case Device.Android:
-            //        uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-            //        //source.Path = "Brain_Eyes_Vid.mp4";
-            //        break;
-            //    case Device.UWP:
-            //        uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-            //        //source.Path = "Videos/Brain_Eyes_Vid.mp4";
-            //        break;
-            //}
-
             videoPlayer.Source = uriSource;
 
             videoPlayer.Play();

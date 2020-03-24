@@ -28,6 +28,7 @@ namespace ESA
             mainViewModel = new MainViewModel();
             BindingContext = viewModel = new AzureProceduresViewModel();
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

@@ -28,24 +28,10 @@ namespace ESA.Services
         bool IsConnected => Connectivity.NetworkAccess == NetworkAccess.Internet;
         public async Task<IEnumerable<Procedure>> GetItemsAsync(bool forceRefresh = false)
         {
-            //try
-            //{
-            //    var response = await client.GetAsync($"api/procedures");
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.WriteLine(e);
-            //    throw;
-            //}
-
             if (forceRefresh && IsConnected)
             {
-                HttpResponseMessage response = await client.GetAsync($"api/procedures");
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
-
-                var json = await client.GetStringAsync($"api/procedures");
-                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Procedure>>(responseBody));
+                var json = await client.GetStringAsync($"api/Procedures");
+                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Procedure>>(json));
             }
 
             return items;
@@ -55,14 +41,12 @@ namespace ESA.Services
         {
             if (id != null && IsConnected)
             {
-                var json = await client.GetStringAsync($"api/procedures/{id}");
+                var json = await client.GetStringAsync($"api/Procedures/{id}");
                 return await Task.Run(() => JsonConvert.DeserializeObject<Procedure>(json));
             }
 
             return null;
         }
-
-
 
         public async Task<bool> AddItemAsync(Procedure item)
         {
@@ -71,7 +55,7 @@ namespace ESA.Services
 
             var serializedItem = JsonConvert.SerializeObject(item);
 
-            var response = await client.PostAsync($"api/procedures", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync($"api/Procedures", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 
             return response.IsSuccessStatusCode;
         }
@@ -87,7 +71,7 @@ namespace ESA.Services
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new ByteArrayContent(buffer);
 
-            var response = await client.PutAsync(new Uri($"api/procedures/{item.Id}"), byteContent);
+            var response = await client.PutAsync(new Uri($"api/Procedures/{item.Id}"), byteContent);
 
             return response.IsSuccessStatusCode;
         }
@@ -97,7 +81,7 @@ namespace ESA.Services
             if (string.IsNullOrEmpty(id) && !IsConnected)
                 return false;
 
-            var response = await client.DeleteAsync($"api/procedures/{id}");
+            var response = await client.DeleteAsync($"api/Procedures/{id}");
 
             return response.IsSuccessStatusCode;
         }

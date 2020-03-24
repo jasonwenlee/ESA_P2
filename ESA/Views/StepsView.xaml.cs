@@ -41,7 +41,7 @@ namespace ESA
             // get the arrow image
             Image arrow = ((Image)((StackLayout)sender).Children.Last());
             // set expanded to chosen step has diagram
-            if (chosenStep.HasDiagram)
+            if (!string.IsNullOrEmpty(chosenStep.DiagramURL))
             {
                 extExpandableView.IsExpanded = !extExpandableView.IsExpanded;
                 extExpandableView.ForceUpdateSize();
@@ -58,14 +58,11 @@ namespace ESA
             }
         }
 
-
         private void DiagramThumbnail_Clicked(object sender, EventArgs e)
         {
             procedureViewModel.VideoName = "Brain_Eyes_Vid.mp4";
             procedureViewModel.VideoIsProcedure = false;
             Navigation.PushAsync(new VideoPage(procedureViewModel));
-            //source.Path = "eye_surgery.mp4";
-            //source.Path = "Brain_Eyes_Vid.mp4";
         }
 
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)

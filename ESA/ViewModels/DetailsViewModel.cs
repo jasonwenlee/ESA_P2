@@ -1,14 +1,19 @@
-﻿using ESA.Models.Model;
+﻿using ESA.MarkupExtensions;
+using ESA.Models.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace ESA.ViewModels
 {
-    public class DetailsViewModel
+    public class DetailsViewModel : BaseViewModel
     {
         public Procedure Procedure { get; set; }
-        public List<Procedure> ProcedureNames { get; set; }
+        public Command LoadProcedureCommand{ get; set; }
 
         //VideoPlayer
         public TimeSpan VideoPosition { get; set; }
@@ -17,30 +22,40 @@ namespace ESA.ViewModels
 
         public DetailsViewModel(Procedure proc)
         {
-            //Procedure = new Procedure().GetProcedure(id);
             Procedure = proc;
-            GetNumberOfSteps(proc);
-            VideoPosition = TimeSpan.Zero;
-            VideoName = "Brain_Eyes_Vid.mp4";
-            VideoIsProcedure = true;
+
+            GetSteps(proc);
         }
 
-        public Procedure GetProcedure(int id)
-        {
-            //Procedure = new Procedure().GetProcedure(id);
-            //return Procedure;
-            return null;
-        }
-
-        public void GetNumberOfSteps(Procedure proc)
+        // STEPS
+        public void GetSteps(Procedure proc)
         {
             int stepNo = 1;
-            List<int> newList = new List<int>();
             foreach (var step in proc.Steps)
             {
                 step.Number = stepNo;
                 stepNo++;
+                if (!string.IsNullOrEmpty(step.DiagramURL) && IsValidURI(step.DiagramURL))
+                {
+                    step.HasDiagram = true;
+                    Uri diagramUri = new Uri(step.DiagramURL);
+                    step.Diagram = new Diagram()
+                    {
+                        Thumbnail = ImageSource.FromUri(diagramUri),
+                        VideoSource = ""
+                    };
+                }
             }
+        }
+
+        // CHECK URI
+        public bool IsValidURI(string uri)
+        {
+            if (!Uri.IsWellFormedUriString(uri, UriKind.Absolute))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -38,6 +38,9 @@ namespace ESA.Models.Model
         public List<Procedure> RelatedProc { get; set; }
         [JsonProperty("procedures", NullValueHandling = NullValueHandling.Ignore)]
         public List<Procedure> MainProc { get; set; }
+        [JsonProperty("clinicalscenarios", NullValueHandling = NullValueHandling.Ignore)]
+        public List<object> Clinicalscenarios { get; set; }
+
         #endregion
         //public Detail Details { get; set; }
 

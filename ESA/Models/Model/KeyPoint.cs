@@ -21,8 +21,8 @@ namespace ESA.Models.Model
         public string Importance { get; set; }
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
-        [JsonProperty("hasDiagram", NullValueHandling = NullValueHandling.Ignore)]
-        public int HasDiagramHere { get; set; }
+        [JsonProperty("diagramURL", NullValueHandling = NullValueHandling.Ignore)]
+        public string DiagramURL { get; set; }
         #endregion
 
         public string Point { get; set; }

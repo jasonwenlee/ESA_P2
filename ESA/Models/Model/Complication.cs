@@ -22,8 +22,8 @@ namespace ESA.Models.Model
         public int ComplicationId { get; set; }
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string ComplicationName { get; set; }
-        [JsonProperty("image", NullValueHandling = NullValueHandling.Ignore)]
-        public string ImageFilePath { get; set; }
+        [JsonProperty("diagramURL", NullValueHandling = NullValueHandling.Ignore)]
+        public string DiagramURL { get; set; }
         #endregion
 
         public int Number { get; set; }
