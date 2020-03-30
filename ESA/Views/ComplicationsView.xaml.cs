@@ -19,6 +19,8 @@ namespace ESA.Views
     {
         public DetailsViewModel procedureViewModel;
 
+        public ComplicationsView() { InitializeComponent(); }
+
         public ComplicationsView(DetailsViewModel pvm)
         {
             InitializeComponent();

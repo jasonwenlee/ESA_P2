@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ESA.Views.Desktop;
 
 namespace ESA
 {
@@ -41,7 +42,18 @@ namespace ESA
             var proc = e.SelectedItem as Procedure;
             if (e.SelectedItem == null) return;
             var test = proc.Steps;
-            await Navigation.PushAsync(new DetailsPage(proc));
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Desktop:
+                    await Navigation.PushAsync(new DetailsPageDesktop(proc));
+                    break;
+                case TargetIdiom.Phone:
+                    await Navigation.PushAsync(new DetailsPage(proc));
+                    break;
+                case TargetIdiom.Tablet:
+                    // if we ever need to implement
+                    break;
+            }
             ((ListView)sender).SelectedItem = null;
         }
 

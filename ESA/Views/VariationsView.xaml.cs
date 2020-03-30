@@ -2,6 +2,7 @@
 using ESA.Models.CustomRenderers;
 using ESA.Models.Model;
 using ESA.ViewModels;
+using ESA.Views.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,10 @@ namespace ESA.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VariationsView : ContentView
     {
-        DetailsViewModel procedureViewModel;
+        public DetailsViewModel procedureViewModel;
+
+        public VariationsView() { InitializeComponent(); }
+
         public VariationsView(DetailsViewModel pvm)
         {
             InitializeComponent();
@@ -26,16 +30,32 @@ namespace ESA.Views
 
         private void RelatedProcedureButton_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Desktop:
+                    Navigation.PushAsync(new DetailsPageDesktop(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Phone:
+                    Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Tablet:
+                    break;
+            }
         }
 
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
-
-            //Variation variation = procedureViewModel.Procedure.Variations[0];
-            //int procedureId = variation.Procedure.First(rp => rp.ProcedureLink == ((CustomButton)sender).Text).Id;
-            //Navigation.PushAsync(new DetailsPage(procedureId));
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Desktop:
+                    Navigation.PushAsync(new DetailsPageDesktop(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Phone:
+                    Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Tablet:
+                    break;
+            }
         }
     }
 }
