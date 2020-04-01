@@ -58,9 +58,7 @@ namespace ESA
 
         private async void ProceduresButton_Clicked(object sender, EventArgs e)
         {
-            ClinicalGrid.IsVisible = false;
             ProcedureGrid.IsVisible = true;
-
             // update activeButtonBox
             Rectangle rectangle = ProceduresButton.Bounds;
             rectangle.Width -= 4;
@@ -73,8 +71,6 @@ namespace ESA
         private async void ClinicalScenariosButton_Clicked(object sender, EventArgs e)
         {
             ProcedureGrid.IsVisible = false;
-            ClinicalGrid.IsVisible = true;
-
             // update activeButtonBox
             Rectangle rectangle = ClinicalScenariosButton.Bounds;
             rectangle.Width -= 2;

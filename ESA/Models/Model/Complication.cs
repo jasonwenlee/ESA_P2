@@ -27,9 +27,8 @@ namespace ESA.Models.Model
         #endregion
 
         public int Number { get; set; }
-        
-        public string Name { get; set; }
-        public ImageSource Image { get; set; }
+        public bool HasDiagram { get; set; }
+        public Diagram Diagram { get; set; }
 
         #region OldHardCoded
         //internal List<Complication> GetComplications(int id)

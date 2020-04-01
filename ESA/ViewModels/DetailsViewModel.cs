@@ -25,6 +25,7 @@ namespace ESA.ViewModels
             Procedure = proc;
 
             GetSteps(proc);
+            GetComplications(proc);
         }
 
         // STEPS
@@ -40,6 +41,24 @@ namespace ESA.ViewModels
                     step.HasDiagram = true;
                     Uri diagramUri = new Uri(step.DiagramURL);
                     step.Diagram = new Diagram()
+                    {
+                        Thumbnail = ImageSource.FromUri(diagramUri),
+                        VideoSource = ""
+                    };
+                }
+            }
+        }
+
+        // COMPLICATIONS
+        public void GetComplications(Procedure proc)
+        {
+            foreach (var complication in proc.Complications)
+            {
+                if (!string.IsNullOrEmpty(complication.DiagramURL) && IsValidURI(complication.DiagramURL))
+                {
+                    complication.HasDiagram = true;
+                    Uri diagramUri = new Uri(complication.DiagramURL);
+                    complication.Diagram = new Diagram()
                     {
                         Thumbnail = ImageSource.FromUri(diagramUri),
                         VideoSource = ""

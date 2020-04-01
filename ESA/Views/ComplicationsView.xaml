@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ESA.Views.ComplicationsView" 
-    xmlns:mrkupExt="clr-namespace:ESA.MarkupExtensions;assembly=ESA">
-
+             xmlns:mrkupExt="clr-namespace:ESA.MarkupExtensions;assembly=ESA">
 
     <ContentView.Content>
         <StackLayout>
@@ -17,7 +16,7 @@
                         <StackLayout Orientation="Vertical" >
                             <!--Step Text-->
                             <Label Text="{Binding ComplicationName}" Style="{StaticResource CompContent}"/>
-                            <ImageButton Source="{Binding Image}" Style="{StaticResource CompImage}" Clicked="ComplicationImage_Clicked"/>
+                            <ImageButton Source="{Binding Diagram.Thumbnail}" Style="{StaticResource CompImage}" Clicked="ComplicationImage_Clicked" />
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

@@ -17,6 +17,7 @@
 
     <ContentPage.Content>
         <StackLayout >
+            
             <!--BUTTONS-->
             <Grid Margin="10,10,10,0">
                 <Grid.ColumnDefinitions>
@@ -53,36 +54,6 @@
                                                 <Setter Property="BackgroundColor" Value="#EEE"/>
                                             </DataTrigger>
                                         </StackLayout.Triggers>
-                                    </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-
-            <!--Clinical Scenarios-->
-            <Grid x:Name="ClinicalGrid" IsVisible="False">
-                <ListView x:Name="ClinicalListView"
-                          ItemsSource="{Binding Items}"
-                          VerticalOptions="FillAndExpand"
-                          HasUnevenRows="true"
-                          RefreshCommand="{Binding LoadItemsCommand}"
-                          IsPullToRefreshEnabled="true"
-                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                          CachingStrategy="RecycleElement"
-                          ItemSelected="MainListView_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell IsEnabled="False">
-                                <ViewCell.View>
-                                    <StackLayout Orientation="Vertical" Spacing="0" Padding="8" BackgroundColor="#EEE" >
-                                        <Label Text="{Binding LongName}" Style="{StaticResource ItemTitle}" />
-                                        <!--<StackLayout Orientation="Horizontal" Spacing="0">
-                                        <Label Text="{Binding Details.Author.PersonName}" Style="{StaticResource ItemDetail}" />
-                                        <Label Text="{Binding Details.UploadDate, StringFormat='{} - {0:dd MMM, yyyy  - }'}" Style="{StaticResource ItemDetail}" />
-                                        <Label Text="{Binding Details.ViewCount, StringFormat='{}{0:n0} views'}" Style="{StaticResource ItemDetail}" />
-                                    </StackLayout>-->
                                     </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>
