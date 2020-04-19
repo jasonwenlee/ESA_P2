@@ -408,7 +408,6 @@ namespace ESA.Views
                 refreshIcons("comp", content.First().GetType().Name);
                 content.Clear();
                 content.Add(new ComplicationsView(procedureViewModel));
-
                 PlayButtonAnimation(sender);
                 AdjustViews();
                 playerCollapse();
@@ -422,8 +421,6 @@ namespace ESA.Views
             {
                 refreshIcons("info", content.First().GetType().Name);
                 content.Clear();
-                // Don't remove :)
-                //contentRow.Children.Add(new InfoView(holdProcedure));
                 content.Add(new InfoView(procedureViewModel));
 
                 PlayButtonAnimation(sender);

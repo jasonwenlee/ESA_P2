@@ -19,10 +19,10 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Spacing="0" Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal" >
+                            <StackLayout Orientation="Vertical" >
                                 <!--Key Point Text-->
-                                <Label Text="{Binding Description}" Style="{StaticResource KeyPointBold}" />
-                                <Label Text="{Binding Point}" Style="{StaticResource KeyPoint}" />
+                                <Label Text="{Binding Header}" Style="{StaticResource KeyPointBold}" />
+                                <Label Text="{Binding Description}" Style="{StaticResource KeyPoint}" />
                                 <Image Source="{mrkupExt:ImageResource ESA.Resources.Icons.expand_more.png}" Style="{StaticResource DropImage}" >
                                     <Image.Triggers>
                                         <DataTrigger TargetType="Image" Binding="{Binding HasDiagram}" Value="False">

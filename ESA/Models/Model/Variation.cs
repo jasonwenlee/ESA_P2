@@ -9,6 +9,7 @@ namespace ESA.Models.Model
 {
     public class Variation
     {
+        #region json
         [JsonProperty("$id", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
         public int JsonId { get; set; }
@@ -22,7 +23,8 @@ namespace ESA.Models.Model
         public string Header { get; set; }
         [JsonProperty("subHeader", NullValueHandling = NullValueHandling.Ignore)]
         public string SubHeader { get; set; }
-
+        #endregion
+        public int Number { get; set; }
         public FormattedString Content { get; set; }
         public List<RelatedProcedure> RelatedProcedures { get; set; } = null;
 

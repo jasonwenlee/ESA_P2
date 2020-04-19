@@ -17,8 +17,8 @@ namespace ESA.Models.Model
         public int ProcedureId { get; set; }
         [JsonProperty("keyPointID", NullValueHandling = NullValueHandling.Ignore)]
         public int KeyPointId { get; set; }
-        [JsonProperty("importance", NullValueHandling = NullValueHandling.Ignore)]
-        public string Importance { get; set; }
+        [JsonProperty("header", NullValueHandling = NullValueHandling.Ignore)]
+        public string Header { get; set; }
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
         [JsonProperty("diagramURL", NullValueHandling = NullValueHandling.Ignore)]

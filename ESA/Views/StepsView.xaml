@@ -51,7 +51,6 @@
                             <extensions:ExtExpandableView.SecondaryViewTemplate>
                                 <DataTemplate>
                                     <StackLayout>
-                                        
                                         <!-- Height Request of 200 ensures the view expands on first try, means thumbnails should be set to 200 height to ensure proper viewing -->
                                         <ImageButton x:Name="diagramBtn" Source="{Binding Diagram.Thumbnail}" Clicked="DiagramThumbnail_Clicked" BackgroundColor="Transparent" HeightRequest="200"/>
                                     </StackLayout>

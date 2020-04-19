@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Android.Content;
 using Android.Views.InputMethods;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using LabelHtml.Forms.Plugin.Droid;
 
 namespace ESA.Droid
 {
@@ -25,6 +26,7 @@ namespace ESA.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            HtmlLabelRenderer.Initialize();
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
