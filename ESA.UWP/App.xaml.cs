@@ -14,8 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using LabelHtml.Forms.Plugin;
-
+using LabelHtml.Forms.Plugin.UWP;
+using System.Reflection;
 
 namespace ESA.UWP
 {
@@ -54,7 +54,9 @@ namespace ESA.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                var rendererAssemblies = new[] { typeof(HtmlLabelRenderer).GetTypeInfo().Assembly };
+                Xamarin.Forms.Forms.Init(e, rendererAssemblies);
+                HtmlLabelRenderer.Initialize();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

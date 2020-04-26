@@ -49,8 +49,8 @@
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" >
                                 <!--Reference Text-->
-                                <Label Text="{Binding Number}" Style="{StaticResource ReferenceNumber}" />
-                                <Label Text="{Binding Content}" Style="{StaticResource ReferenceContent}" TextType="Html" />
+                                <!--<Label Text="{Binding Number}" Style="{StaticResource ReferenceNumber}" />-->
+                                <htmlLabel:HtmlLabel Text="{Binding Content}" Style="{StaticResource ReferenceContent}"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
@@ -104,12 +104,14 @@
             <Setter Property="VerticalOptions" Value="Start" />
             <Setter Property="HorizontalOptions" Value="Fill" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
-        </Style>
+        </Style> 
         <Style x:Key="ReferenceContent" TargetType="Label">
             <Setter Property="TextColor" Value="#404040" />
             <Setter Property="FontSize" Value="Small" />
             <Setter Property="LineBreakMode" Value="WordWrap" />
             <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            
+            
         </Style>
     </ContentView.Resources>
 </ContentView>
