@@ -31,12 +31,7 @@
                         <DataTemplate>
                             <StackLayout Spacing="0" Orientation="Vertical">
                                 <!--History Text-->
-                                <htmlLabel:HtmlLabel Text="{Binding Content}" Style="{StaticResource HistoryBody}"/>
-                                <Label Text="{Binding References}" Style="{StaticResource HistoryReferences}" >
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="HistoryReference_Tapped" />
-                                    </Label.GestureRecognizers>
-                                </Label>
+                                <htmlLabel:HtmlLabel Text="{Binding Content}"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
@@ -50,7 +45,7 @@
                             <StackLayout Orientation="Horizontal" >
                                 <!--Reference Text-->
                                 <!--<Label Text="{Binding Number}" Style="{StaticResource ReferenceNumber}" />-->
-                                <htmlLabel:HtmlLabel Text="{Binding Content}" Style="{StaticResource ReferenceContent}"/>
+                                <htmlLabel:HtmlLabel Text="{Binding Content}"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>

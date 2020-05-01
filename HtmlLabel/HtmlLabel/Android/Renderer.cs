@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Linq;
 using Android.OS;
@@ -11,6 +12,7 @@ using LabelHtml.Forms.Plugin.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform.Android;
+using Color = Xamarin.Forms.Color;
 
 [assembly: ExportRenderer(typeof(HtmlLabel), typeof(HtmlLabelRenderer))]
 namespace LabelHtml.Forms.Plugin.Droid
@@ -119,11 +121,9 @@ namespace LabelHtml.Forms.Plugin.Droid
 				Html.FromHtml(html, fromHtmlOptions, imageGetter, listTagHandler) :
 				Html.FromHtml(html, imageGetter, listTagHandler);
 			using var strBuilder = new SpannableStringBuilder(sequence);
-
 			// Make clickable links
 			if (!Element.GestureRecognizers.Any())
 			{
-				
 				control.MovementMethod = LinkMovementMethod.Instance;
 				URLSpan[] urls = strBuilder
 					.GetSpans(0, sequence.Length(), Class.FromType(typeof(URLSpan)))

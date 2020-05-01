@@ -104,6 +104,6 @@ namespace LabelHtml.Forms.Plugin.Droid
             _ = asyncTask.Execute(source);
 
             return urlDrawable;
-        }                
+        }
     }
 }
