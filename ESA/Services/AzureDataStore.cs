@@ -14,14 +14,16 @@ namespace ESA.Services
     {
         HttpClient client;
         IEnumerable<Procedure> items;
+        
 
         public AzureDataStore()
         {
+            var subscriptionKey = "5947689f5d5d49839da45cb640f4b533";
             client = new HttpClient
             {
                 BaseAddress = new Uri($"{App.AzureBackendUrl}/")
             };
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
             items = new List<Procedure>();
         }
 

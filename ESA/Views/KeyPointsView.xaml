@@ -18,7 +18,7 @@
             <StackLayout x:Name="pointsLayout" Style="{StaticResource FlexLayout}" BindableLayout.ItemsSource="{Binding KeyPoints}" >
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Spacing="0" Orientation="Vertical">
+                        <StackLayout Spacing="-20" Orientation="Vertical">
                             <StackLayout Orientation="Vertical" >
                                 <!--Key Point Text-->
                                 <Label Text="{Binding Header}" Style="{StaticResource KeyPointBold}" />

@@ -22,12 +22,11 @@ namespace ESA.Models.Model
         public string ContentHere { get; set; }
         [JsonProperty("diagramURL", NullValueHandling = NullValueHandling.Ignore)]
         public string DiagramURL { get; set; }
-        #endregion
+        [JsonProperty("number", NullValueHandling = NullValueHandling.Ignore)]
         public int Number { get; set; }
+        #endregion
+
         public bool HasDiagram { get; set; }
         public Diagram Diagram { get; set; }
-        //public Image image;
-        public RelatedProcedure RelatedProcedure { get; set; } = null;
-        public bool HasRelatedProcedure { get; set; }
     }
 }

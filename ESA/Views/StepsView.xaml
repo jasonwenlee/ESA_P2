@@ -21,7 +21,7 @@
                         <extensions:ExtExpandableView x:Name="expandableView" IsTouchToExpandEnabled="False" >
                             <!-- Primary View Contains Step Number and Step Text -->
                             <extensions:ExtExpandableView.PrimaryView>
-                                <StackLayout Orientation="Vertical" Spacing="0">
+                                <StackLayout Orientation="Vertical" Spacing="-20">
                                     <StackLayout Orientation="Horizontal" >
                                         <Label Text="{Binding Number}" Style="{StaticResource StepNumber}"/>
                                         <Label Text="{Binding ContentHere}" Style="{StaticResource StepContent}" Margin="0,0,20,0"/>

@@ -11,9 +11,19 @@ namespace ESA.Models.Model
     public class RelatedProcedure
     {
         #region json
-        [JsonProperty("$ref", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("$id", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public int Ref { get; set; }
+        public int JsonId { get; set; }
+        [JsonProperty("procedures", NullValueHandling = NullValueHandling.Ignore)]
+        public Procedure Procedures { get; set; }
+        [JsonProperty("relatedprocedures", NullValueHandling = NullValueHandling.Ignore)]
+        public Procedure Relatedprocedures { get; set; }
+        [JsonProperty("procedure_has_RelatedProcedurecol", NullValueHandling = NullValueHandling.Ignore)]
+        public int ProcedureHasRelatedProcedurecol { get; set; }
+        [JsonProperty("procedureID", NullValueHandling = NullValueHandling.Ignore)]
+        public int ProcedureId { get; set; }
+        [JsonProperty("relatedProcedureID", NullValueHandling = NullValueHandling.Ignore)]
+        public int RelatedProcedureId { get; set; }
         #endregion
     }
 }
