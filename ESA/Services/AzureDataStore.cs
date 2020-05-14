@@ -30,7 +30,7 @@ namespace ESA.Services
         {
             if (forceRefresh && IsConnected)
             {
-                var json = await client.GetStringAsync($"api/Procedures");
+                var json = await client.GetStringAsync($"api/procedures");
                 items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Procedure>>(json));
             }
 

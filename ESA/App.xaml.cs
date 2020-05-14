@@ -1,5 +1,8 @@
 ﻿using ESA.Services;
 using ESA.ViewModels;
+using ESA.Views;
+using Firebase.Database;
+using Firebase.Database.Query;
 using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -14,7 +17,7 @@ namespace ESA
         //If using other emulators besides stock Google images you may need to adjust the IP address
 
         public static string AzureBackendUrl =
-            DeviceInfo.Platform == DevicePlatform.Android ? "http://10.1.1.20/WebApiTest" : "http://10.1.1.20/WebApiTest";
+            DeviceInfo.Platform == DevicePlatform.Android ? "http://192.168.0.170:82/WebApi" : "http://192.168.0.170:82/WebApi";
 
         //    public static string AzureBackendUrl =
         //DeviceInfo.Platform == DevicePlatform.Android ? "https://esanetframework20191112114142.azurewebsites.net" : "https://esanetframework20191112114142.azurewebsites.net";
@@ -22,13 +25,16 @@ namespace ESA
         //    public static string AzureBackendUrl =
         //DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
 
+        //  Connection to Firebase Realtime Database
+        public static FirebaseClient firebase = new FirebaseClient("https://esa-backend-38a89.firebaseio.com/");
+
         public App()
         {
             InitializeComponent();
             // Register AzureDataStore to allow Android, iOS, and Windows platform to access
             DependencyService.Register<AzureDataStore>();
             // MainPage = new MainPage();
-            MainPage = new NavigationPage(new SplashPage()); // REC: Using the SplashPage.cs as the initial page.
+            MainPage = new NavigationPage(new FirePage()); // REC: Using the SplashPage.cs as the initial page.
         }
 
         protected override void OnStart()

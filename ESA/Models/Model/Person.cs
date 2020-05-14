@@ -9,6 +9,7 @@ namespace ESA.Models.Model
 {
     public class Person
     {
+        public int PersonId { get; set; }
         public string PersonName { get; set; }
         public string ShortDesc { get; set; }
         public ImageSource Image { get; set; }
@@ -44,6 +45,11 @@ namespace ESA.Models.Model
 
             };
             return people;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
 
     }
