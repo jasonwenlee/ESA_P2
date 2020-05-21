@@ -16,7 +16,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout >
+        <StackLayout x:Name="mainStackLayout">
             
             <!--BUTTONS-->
             <Grid Margin="10,10,10,0">
@@ -24,6 +24,10 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                
                 <BoxView Grid.ColumnSpan="2" BackgroundColor="#CCC" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15"/>
                 <BoxView x:Name="activeButtonBox" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15" Margin="2"/>
                 <customButton:CustomButton Grid.Column="0" x:Name="ProceduresButton" Text="Procedures" Style="{StaticResource InfoButton}" Clicked="ProceduresButton_Clicked"/>
@@ -69,7 +73,7 @@
             <mrkupExt:IdToBoolConverter x:Key="enabledConverter" />
             <Style x:Key="ItemHeader" TargetType="Label">
                 <Setter Property="TextColor" Value="Black" />
-                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontSize" Value="Small" />
                 <Setter Property="Margin" Value="5" />
             </Style>
             <Style x:Key="ItemTitle" TargetType="Label">

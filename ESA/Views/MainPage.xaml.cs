@@ -1,6 +1,7 @@
 ﻿using ESA.Models.Model;
 using ESA.ViewModels;
 using ESA.Views;
+using ESA.Views.UWP_Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +28,14 @@ namespace ESA
             // MainViewModel
             mainViewModel = new MainViewModel();
             BindingContext = viewModel = new AzureProceduresViewModel();
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+            }
+            else if (Device.Idiom == TargetIdiom.Desktop)
+            {
+                mainStackLayout.Margin = new Thickness(450,40);
+            }
         }
 
         protected override void OnAppearing()
@@ -42,8 +51,16 @@ namespace ESA
             var proc = e.SelectedItem as Procedure;
             if (e.SelectedItem == null) return;
             var test = proc.Steps;
-            await Navigation.PushAsync(new DetailsPage(proc));
+            if(Device.Idiom == TargetIdiom.Phone)
+            {
+                await Navigation.PushAsync(new DetailsPage(proc));
             ((ListView)sender).SelectedItem = null;
+            } else if (Device.Idiom == TargetIdiom.Desktop)
+            {
+                await Navigation.PushAsync(new UWP_DetailsView(proc));
+                ((ListView)sender).SelectedItem = null;
+            }
+
         }
 
         private async void AboutUs_Clicked(object sender, EventArgs e)

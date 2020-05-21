@@ -2,6 +2,7 @@
 using ESA.Models.CustomRenderers;
 using ESA.Models.Model;
 using ESA.ViewModels;
+using ESA.Views.UWP_Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,14 @@ namespace ESA.Views
 
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+            }
+            else if (Device.Idiom == TargetIdiom.Desktop)
+            {
+                Navigation.PushAsync(new UWP_DetailsView(procedureViewModel.Procedure));
+            }
 
             //Variation variation = procedureViewModel.Procedure.Variations[0];
             //int procedureId = variation.Procedure.First(rp => rp.ProcedureLink == ((CustomButton)sender).Text).Id;

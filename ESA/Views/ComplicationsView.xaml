@@ -26,9 +26,6 @@
     
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="FlexLayout" TargetType="StackLayout">
-                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-            </Style>
             <Style x:Key="CompContent" TargetType="Label">
                 <Setter Property="TextColor" Value="#3f3f3f" />
                 <Setter Property="FontSize" Value="Small" />
@@ -42,7 +39,6 @@
                 <Setter Property="Aspect" Value="AspectFill"/>
                 <Setter Property="HeightRequest" Value="300"/>
             </Style>
-
         </ResourceDictionary>
     </ContentView.Resources>
 

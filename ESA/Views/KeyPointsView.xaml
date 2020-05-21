@@ -19,7 +19,7 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Spacing="-20" Orientation="Vertical">
-                            <StackLayout Orientation="Vertical" >
+                            <StackLayout Orientation="Vertical">
                                 <!--Key Point Text-->
                                 <Label Text="{Binding Header}" Style="{StaticResource KeyPointBold}" />
                                 <Label Text="{Binding Description}" Style="{StaticResource KeyPoint}" />
@@ -54,9 +54,6 @@
 
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="FlexLayout" TargetType="StackLayout">
-                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-            </Style>
             <Style x:Key="DropImage" TargetType="Image">
                 <Setter Property="WidthRequest" Value="20" />
                 <Setter Property="HorizontalOptions" Value="End" />
