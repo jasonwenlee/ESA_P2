@@ -34,7 +34,7 @@ namespace ESA
             }
             else if (Device.Idiom == TargetIdiom.Desktop)
             {
-                mainStackLayout.Margin = new Thickness(450,40);
+                mainStackLayout.Margin = new Thickness(450, 40);
             }
         }
 
@@ -51,13 +51,17 @@ namespace ESA
             var proc = e.SelectedItem as Procedure;
             if (e.SelectedItem == null) return;
             var test = proc.Steps;
-            if(Device.Idiom == TargetIdiom.Phone)
+            if (Device.Idiom == TargetIdiom.Phone)
             {
                 await Navigation.PushAsync(new DetailsPage(proc));
-            ((ListView)sender).SelectedItem = null;
-            } else if (Device.Idiom == TargetIdiom.Desktop)
+                ((ListView)sender).SelectedItem = null;
+            }
+            else if (Device.Idiom == TargetIdiom.Desktop)
             {
-                await Navigation.PushAsync(new UWP_DetailsView(proc));
+                //await Navigation.PushAsync(new UWP_DetailsView(proc));
+                //await Navigation.PushAsync(new UWP_DetailsPageV2(proc));
+                //await Navigation.PushAsync(new UWP_DetailsPageV3(proc));
+                await Navigation.PushAsync(new UWP_DetailsPageV4(proc));
                 ((ListView)sender).SelectedItem = null;
             }
 
