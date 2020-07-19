@@ -1,6 +1,7 @@
 ﻿using ESA.Models.Model;
 using ESA.ViewModels;
 using ESA.Views;
+using ESA.Views.UWP_Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,7 +28,16 @@ namespace ESA
             // MainViewModel
             mainViewModel = new MainViewModel();
             BindingContext = viewModel = new AzureProceduresViewModel();
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+            }
+            else if (Device.Idiom == TargetIdiom.Desktop)
+            {
+                mainStackLayout.Margin = new Thickness(450, 40);
+            }
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -41,8 +51,20 @@ namespace ESA
             var proc = e.SelectedItem as Procedure;
             if (e.SelectedItem == null) return;
             var test = proc.Steps;
-            await Navigation.PushAsync(new DetailsPage(proc));
-            ((ListView)sender).SelectedItem = null;
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                await Navigation.PushAsync(new DetailsPage(proc));
+                ((ListView)sender).SelectedItem = null;
+            }
+            else if (Device.Idiom == TargetIdiom.Desktop)
+            {
+                //await Navigation.PushAsync(new UWP_DetailsView(proc));
+                await Navigation.PushAsync(new UWP_DetailsPageV2(proc));
+                //await Navigation.PushAsync(new UWP_DetailsPageV3(proc));
+                //await Navigation.PushAsync(new UWP_DetailsPageV4(proc));
+                ((ListView)sender).SelectedItem = null;
+            }
+
         }
 
         private async void AboutUs_Clicked(object sender, EventArgs e)
@@ -57,9 +79,7 @@ namespace ESA
 
         private async void ProceduresButton_Clicked(object sender, EventArgs e)
         {
-            ClinicalGrid.IsVisible = false;
             ProcedureGrid.IsVisible = true;
-
             // update activeButtonBox
             Rectangle rectangle = ProceduresButton.Bounds;
             rectangle.Width -= 4;
@@ -72,8 +92,6 @@ namespace ESA
         private async void ClinicalScenariosButton_Clicked(object sender, EventArgs e)
         {
             ProcedureGrid.IsVisible = false;
-            ClinicalGrid.IsVisible = true;
-
             // update activeButtonBox
             Rectangle rectangle = ClinicalScenariosButton.Bounds;
             rectangle.Width -= 2;
