@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using LabelHtml.Forms.Plugin.iOS;
 using UIKit;
 
 namespace ESA.iOS
@@ -23,6 +24,7 @@ namespace ESA.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            HtmlLabelRenderer.Initialize();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

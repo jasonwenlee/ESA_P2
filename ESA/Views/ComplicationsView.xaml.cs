@@ -22,7 +22,6 @@ namespace ESA.Views
         public ComplicationsView(DetailsViewModel pvm)
         {
             InitializeComponent();
-
             procedureViewModel = pvm;
             BindingContext = procedureViewModel.Procedure;
         }

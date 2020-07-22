@@ -10,6 +10,8 @@ using Windows.UI.Xaml.Media;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
+using MediaElement = Windows.UI.Xaml.Controls.MediaElement;
+using MediaElementState = Windows.UI.Xaml.Media.MediaElementState;
 
 [assembly: ExportRenderer(typeof(ESA.Models.VideoView.VideoPlayer),
                           typeof(ESA.Droid.VideoView.VideoPlayerRenderer))]

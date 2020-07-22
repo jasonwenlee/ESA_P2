@@ -18,11 +18,11 @@
             <StackLayout x:Name="pointsLayout" Style="{StaticResource FlexLayout}" BindableLayout.ItemsSource="{Binding KeyPoints}" >
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Spacing="0" Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal" >
+                        <StackLayout Spacing="-20" Orientation="Vertical">
+                            <StackLayout Orientation="Vertical">
                                 <!--Key Point Text-->
-                                <Label Text="{Binding Description}" Style="{StaticResource KeyPointBold}" />
-                                <Label Text="{Binding Point}" Style="{StaticResource KeyPoint}" />
+                                <Label Text="{Binding Header}" Style="{StaticResource KeyPointBold}" />
+                                <Label Text="{Binding Description}" Style="{StaticResource KeyPoint}" />
                                 <Image Source="{mrkupExt:ImageResource ESA.Resources.Icons.expand_more.png}" Style="{StaticResource DropImage}" >
                                     <Image.Triggers>
                                         <DataTrigger TargetType="Image" Binding="{Binding HasDiagram}" Value="False">
@@ -54,9 +54,6 @@
 
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="FlexLayout" TargetType="StackLayout">
-                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-            </Style>
             <Style x:Key="DropImage" TargetType="Image">
                 <Setter Property="WidthRequest" Value="20" />
                 <Setter Property="HorizontalOptions" Value="End" />

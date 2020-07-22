@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ESA.Views.UWP_Views.UWP_DetailsPageV2"  xmlns:video="clr-namespace:ESA.Models.VideoView"
+             xmlns:mrkupExt="clr-namespace:ESA.MarkupExtensions;assembly=ESA"
+             xmlns:customButton="clr-namespace:ESA.Models.CustomRenderers"
+             x:Name="StepPage_Instance"
+             Style="{StaticResource DetailsPage}">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--CONTENT-->
+            <ScrollView x:Name="scrollView" Orientation="Vertical" VerticalOptions="Start" Padding="0,15,0,10" Margin="20,5">
+                <!--VIDEO-->
+                <StackLayout Spacing="2" Margin="20,5">
+                    <video:VideoPlayer x:Name="videoPlayer" AreTransportControlsEnabled="True" Margin="20" />
+                    <!--Procedure Information-->
+                    <Label Style="{StaticResource ProcedureTitle}" Text="{Binding Procedure.LongName}" />
+                    <Label Style="{StaticResource ProcedureDescription}" Text="{Binding Procedure.Description}" />
+
+                    <!--Tab buttons-->
+                    <Grid  Margin="20,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView Grid.ColumnSpan="4" BackgroundColor="#CCC" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15"/>
+                        <BoxView x:Name="activeButtonBox" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15" Margin="2"/>
+                        <customButton:CustomButton Grid.Column="0" x:Name="keyPointsBtn" Text="Key Points" Style="{StaticResource InfoButton}" Clicked="KeyPointsBtn_Clicked"/>
+                        <customButton:CustomButton Grid.Column="1" x:Name="variationsBtn" Text="Variations" Style="{StaticResource InfoButton}" Clicked="VariationsBtn_Clicked"/>
+                        <customButton:CustomButton Grid.Column="2" x:Name="complicationsBtn" Text="Complications" Style="{StaticResource InfoButton}" Clicked="ComplicationsBtn_Clicked"/>
+                        <customButton:CustomButton Grid.Column="3" x:Name="infoBtn" Text="History" Style="{StaticResource InfoButton}" Clicked="InfoBtn_Clicked"/>
+                    </Grid>
+
+                    <Grid VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout x:Name="contentRow" >
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+
+            <!--Steps-->
+            <ScrollView Orientation="Vertical" VerticalOptions="Start" Grid.Row="0" Grid.Column="1">
+                <StackLayout x:Name="stepsRow" Margin="20">
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Footer" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <Style x:Key="FooterButton" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="Margin" Value="0,5,0,0" />
+            </Style>
+            <Style x:Key="FooterLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</ContentPage>

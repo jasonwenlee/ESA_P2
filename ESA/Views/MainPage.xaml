@@ -12,17 +12,22 @@
         <ToolbarItem Name="About" IconImageSource="{mrkupExt:ImageResource ESA.Resources.Icons.about48.png}" Clicked="AboutUs_Clicked" />
         <ToolbarItem Name="Search" IconImageSource="{mrkupExt:ImageResource ESA.Resources.Icons.search48.png}" />
         <!--Clicked="Search_Clicked"-->
-        <ToolbarItem x:Name="Database" Text="Login" Clicked="Database_Clicked"/>
+        <!--<ToolbarItem x:Name="Database" Text="Login" Clicked="Database_Clicked"/>-->
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout >
+        <StackLayout x:Name="mainStackLayout">
+            
             <!--BUTTONS-->
             <Grid Margin="10,10,10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                
                 <BoxView Grid.ColumnSpan="2" BackgroundColor="#CCC" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15"/>
                 <BoxView x:Name="activeButtonBox" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15" Margin="2"/>
                 <customButton:CustomButton Grid.Column="0" x:Name="ProceduresButton" Text="Procedures" Style="{StaticResource InfoButton}" Clicked="ProceduresButton_Clicked"/>
@@ -39,53 +44,20 @@
                           IsPullToRefreshEnabled="true"
                           IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                           CachingStrategy="RecycleElement"
-                          ItemSelected="MainListView_ItemSelected">
+                          ItemSelected="MainListView_ItemSelected"
+                          >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell IsEnabled="{Binding Id, Converter={StaticResource enabledConverter}, ConverterParameter=-1}">
                                 <ViewCell.View>
                                     <StackLayout Orientation="Vertical" Spacing="0" Padding="8">
-                                        <Label Text="{Binding LongName}" Style="{StaticResource ItemTitle}" />
-                                        <!--<StackLayout Orientation="Horizontal" Spacing="0">
-                                        <Label Text="{Binding Details.Author.PersonName}" Style="{StaticResource ItemDetail}" />
-                                        <Label Text="{Binding Details.UploadDate, StringFormat='{} - {0:dd MMM, yyyy  - }'}" Style="{StaticResource ItemDetail}" />
-                                        <Label Text="{Binding Details.ViewCount, StringFormat='{}{0:n0} views'}" Style="{StaticResource ItemDetail}" />
-                                    </StackLayout>-->
+                                        <Label Text="{Binding LongName}" Style="{StaticResource ItemTitle}">
+                                        </Label>
                                         <StackLayout.Triggers>
                                             <DataTrigger TargetType="StackLayout" Binding="{Binding Id}" Value="-1">
                                                 <Setter Property="BackgroundColor" Value="#EEE"/>
                                             </DataTrigger>
                                         </StackLayout.Triggers>
-                                    </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-
-            <!--Clinical Scenarios-->
-            <Grid x:Name="ClinicalGrid" IsVisible="False">
-                <ListView x:Name="ClinicalListView"
-                          ItemsSource="{Binding Items}"
-                          VerticalOptions="FillAndExpand"
-                          HasUnevenRows="true"
-                          RefreshCommand="{Binding LoadItemsCommand}"
-                          IsPullToRefreshEnabled="true"
-                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                          CachingStrategy="RecycleElement"
-                          ItemSelected="MainListView_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell IsEnabled="False">
-                                <ViewCell.View>
-                                    <StackLayout Orientation="Vertical" Spacing="0" Padding="8" BackgroundColor="#EEE" >
-                                        <Label Text="{Binding LongName}" Style="{StaticResource ItemTitle}" />
-                                        <!--<StackLayout Orientation="Horizontal" Spacing="0">
-                                        <Label Text="{Binding Details.Author.PersonName}" Style="{StaticResource ItemDetail}" />
-                                        <Label Text="{Binding Details.UploadDate, StringFormat='{} - {0:dd MMM, yyyy  - }'}" Style="{StaticResource ItemDetail}" />
-                                        <Label Text="{Binding Details.ViewCount, StringFormat='{}{0:n0} views'}" Style="{StaticResource ItemDetail}" />
-                                    </StackLayout>-->
                                     </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>
@@ -101,7 +73,7 @@
             <mrkupExt:IdToBoolConverter x:Key="enabledConverter" />
             <Style x:Key="ItemHeader" TargetType="Label">
                 <Setter Property="TextColor" Value="Black" />
-                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontSize" Value="Small" />
                 <Setter Property="Margin" Value="5" />
             </Style>
             <Style x:Key="ItemTitle" TargetType="Label">

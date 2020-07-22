@@ -14,10 +14,7 @@ namespace ESA
         //If using other emulators besides stock Google images you may need to adjust the IP address
 
         public static string AzureBackendUrl =
-            DeviceInfo.Platform == DevicePlatform.Android ? "http://10.1.1.20/ESA" : "http://10.1.1.20/ESA";
-
-        //    public static string AzureBackendUrl =
-        //DeviceInfo.Platform == DevicePlatform.Android ? "https://esanetframework20191112114142.azurewebsites.net" : "https://esanetframework20191112114142.azurewebsites.net";
+            DeviceInfo.Platform == DevicePlatform.Android ? "https://esawebapi-apim.azure-api.net" : "https://esawebapi-apim.azure-api.net";
 
         //    public static string AzureBackendUrl =
         //DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";

@@ -68,23 +68,6 @@ namespace ESA.Views
             ResourceVideoSource source = new ResourceVideoSource();
             UriVideoSource uriSource = new UriVideoSource();
             uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-
-            //switch (Device.RuntimePlatform)
-            //{
-            //    case Device.iOS:
-            //        uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-            //        //source.Path = "Videos/Brain_Eyes_Vid.mp4";                    
-            //        break;
-            //    case Device.Android:
-            //        uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-            //        //source.Path = "Brain_Eyes_Vid.mp4";
-            //        break;
-            //    case Device.UWP:
-            //        uriSource.Uri = procedureViewModel.Procedure.VideoSource;
-            //        //source.Path = "Videos/Brain_Eyes_Vid.mp4";
-            //        break;
-            //}
-
             videoPlayer.Source = uriSource;
 
             videoPlayer.Play();
@@ -425,7 +408,6 @@ namespace ESA.Views
                 refreshIcons("comp", content.First().GetType().Name);
                 content.Clear();
                 content.Add(new ComplicationsView(procedureViewModel));
-
                 PlayButtonAnimation(sender);
                 AdjustViews();
                 playerCollapse();
@@ -439,8 +421,6 @@ namespace ESA.Views
             {
                 refreshIcons("info", content.First().GetType().Name);
                 content.Clear();
-                // Don't remove :)
-                //contentRow.Children.Add(new InfoView(holdProcedure));
                 content.Add(new InfoView(procedureViewModel));
 
                 PlayButtonAnimation(sender);

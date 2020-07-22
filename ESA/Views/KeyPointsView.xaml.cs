@@ -68,7 +68,6 @@ namespace ESA.Views
             procedureViewModel.VideoName = "Brain_Eyes_Vid.mp4";
             procedureViewModel.VideoIsProcedure = false;
             Navigation.PushAsync(new VideoPage(procedureViewModel));
-         
         }
 
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)

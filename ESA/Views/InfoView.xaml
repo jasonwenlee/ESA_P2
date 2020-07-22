@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="ESA.InfoView"
              xmlns:mrkupExt="clr-namespace:ESA.MarkupExtensions;assembly=ESA"
-             xmlns:customButton="clr-namespace:ESA.Models.CustomRenderers">
+             xmlns:customButton="clr-namespace:ESA.Models.CustomRenderers"
+             xmlns:htmlLabel="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin">
+    
 
     <ContentView.Content>
         <StackLayout>
@@ -29,12 +31,7 @@
                         <DataTemplate>
                             <StackLayout Spacing="0" Orientation="Vertical">
                                 <!--History Text-->
-                                <Label Text="{Binding Content}" Style="{StaticResource HistoryBody}" />
-                                <Label Text="{Binding References}" Style="{StaticResource HistoryReferences}" >
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="HistoryReference_Tapped" />
-                                    </Label.GestureRecognizers>
-                                </Label>
+                                <htmlLabel:HtmlLabel Text="{Binding Content}"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
@@ -47,8 +44,8 @@
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" >
                                 <!--Reference Text-->
-                                <Label Text="{Binding Number}" Style="{StaticResource ReferenceNumber}" />
-                                <Label Text="{Binding Content}" Style="{StaticResource ReferenceContent}" />
+                                <!--<Label Text="{Binding Number}" Style="{StaticResource ReferenceNumber}" />-->
+                                <htmlLabel:HtmlLabel Text="{Binding Content}"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>

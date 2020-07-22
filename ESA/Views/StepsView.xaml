@@ -8,8 +8,8 @@
              x:Class="ESA.StepsView"
              x:Name="stepsView"
              xmlns:mrkupExt="clr-namespace:ESA.MarkupExtensions;assembly=ESA"
-             xmlns:customButton="clr-namespace:ESA.Models.CustomRenderers">
-
+             xmlns:customButton="clr-namespace:ESA.Models.CustomRenderers"            >
+             
     <ContentView.Content>
         <StackLayout>
             <!-- Steps Title -->
@@ -21,7 +21,7 @@
                         <extensions:ExtExpandableView x:Name="expandableView" IsTouchToExpandEnabled="False" >
                             <!-- Primary View Contains Step Number and Step Text -->
                             <extensions:ExtExpandableView.PrimaryView>
-                                <StackLayout Orientation="Vertical" Spacing="0">
+                                <StackLayout Orientation="Vertical" Spacing="-20">
                                     <StackLayout Orientation="Horizontal" >
                                         <Label Text="{Binding Number}" Style="{StaticResource StepNumber}"/>
                                         <Label Text="{Binding ContentHere}" Style="{StaticResource StepContent}" Margin="0,0,20,0"/>
@@ -33,9 +33,9 @@
                                             </Image.Triggers>
                                         </Image>
                                         <!-- Tap Gesture when a step is tapped -->
-                                        <!--<StackLayout.GestureRecognizers>
+                                        <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="DropdownContent_Tapped"/>
-                                        </StackLayout.GestureRecognizers>-->
+                                        </StackLayout.GestureRecognizers>
                                     </StackLayout>
                                     <customButton:CustomButton Text="{Binding RelatedProcedure.ProcedureLink}" Style="{StaticResource RelatedProcedureButton}" Clicked="RelatedProcedureButton_Clicked" >
                                         <customButton:CustomButton.Triggers>
@@ -51,7 +51,6 @@
                             <extensions:ExtExpandableView.SecondaryViewTemplate>
                                 <DataTemplate>
                                     <StackLayout>
-                                        
                                         <!-- Height Request of 200 ensures the view expands on first try, means thumbnails should be set to 200 height to ensure proper viewing -->
                                         <ImageButton x:Name="diagramBtn" Source="{Binding Diagram.Thumbnail}" Clicked="DiagramThumbnail_Clicked" BackgroundColor="Transparent" HeightRequest="200"/>
                                     </StackLayout>
@@ -66,9 +65,6 @@
 
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="FlexLayout" TargetType="StackLayout">
-                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-            </Style>
             <Style x:Key="StepNumber" TargetType="Label">
                 <Setter Property="TextColor" Value="#3f3f3f" />
                 <Setter Property="FontSize" Value="16" />
