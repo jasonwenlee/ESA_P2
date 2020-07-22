@@ -15,6 +15,7 @@ using System.Windows.Input;
 using Expandable;
 using ESA.MarkupExtensions;
 using Windows.UI.Popups;
+using ESA.Views.Desktop;
 
 namespace ESA
 {
@@ -22,7 +23,8 @@ namespace ESA
     public partial class StepsView : ContentView
     {
         public DetailsViewModel procedureViewModel;
-        
+
+        public StepsView() { InitializeComponent(); }
 
         public StepsView(DetailsViewModel pvm)
         {
@@ -68,7 +70,17 @@ namespace ESA
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)
         {
             int procedureId = procedureViewModel.Procedure.Steps.First(s => s.Number == int.Parse(((Label)((StackLayout)((StackLayout)((CustomButton)sender).Parent).Children.First()).Children.First()).Text)).Procedure.Id;
-            //Navigation.PushAsync(new DetailsPage(procedureId));
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Desktop:
+                    Navigation.PushAsync(new DetailsPageDesktop(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Phone:
+                    Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Tablet:
+                    break;
+            }
         }
     }
 }

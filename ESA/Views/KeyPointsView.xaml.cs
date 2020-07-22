@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ESA.Views.Desktop;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,6 +22,7 @@ namespace ESA.Views
         public DetailsViewModel procedureViewModel;
         public int currentStep;
 
+        public KeyPointsView() { InitializeComponent(); }
 
         public KeyPointsView(DetailsViewModel pvm)
         {
@@ -73,7 +75,17 @@ namespace ESA.Views
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)
         {
             int procedureId = procedureViewModel.Procedure.KeyPoints.First(k => k.Point == ((Label)((StackLayout)((StackLayout)((CustomButton)sender).Parent).Children.First()).Children.ElementAt(1)).Text).Procedure.Id;
-            //Navigation.PushAsync(new DetailsPage(procedureId));
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Desktop:
+                    Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Phone:
+                    Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));
+                    break;
+                case TargetIdiom.Tablet:
+                    break;
+            }
         }
     }
 }
