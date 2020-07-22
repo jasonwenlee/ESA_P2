@@ -2,6 +2,7 @@
 using ESA.Models.CustomRenderers;
 using ESA.ViewModels;
 using ESA.Views;
+using ESA.Views.UWP_Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +16,6 @@ using System.Windows.Input;
 using Expandable;
 using ESA.MarkupExtensions;
 using Windows.UI.Popups;
-using ESA.Views.Desktop;
 
 namespace ESA
 {
@@ -73,7 +73,7 @@ namespace ESA
             switch (Device.Idiom)
             {
                 case TargetIdiom.Desktop:
-                    Navigation.PushAsync(new DetailsPageDesktop(procedureViewModel.Procedure));
+                    Navigation.PushAsync(new UWP_DetailsPageV2(procedureViewModel.Procedure));
                     break;
                 case TargetIdiom.Phone:
                     Navigation.PushAsync(new DetailsPage(procedureViewModel.Procedure));

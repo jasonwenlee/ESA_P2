@@ -52,7 +52,7 @@ namespace ESA.Views
             player.Source = uriSource;
 
             // Fade Timer
-            fadeTimer.Interval = 2000;
+            fadeTimer.Interval = 3000;
             fadeTimer.Elapsed += (s, e) =>
             {
                 Device.BeginInvokeOnMainThread(() => { VideoControls_Tapped(s, e); });
