@@ -9,8 +9,8 @@
              xmlns:customButton="clr-namespace:ESA.Models.CustomRenderers">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="About" IconImageSource="{mrkupExt:ImageResource ESA.Resources.Icons.about48.png}" Clicked="AboutUs_Clicked" />
-        <ToolbarItem Name="Search" IconImageSource="{mrkupExt:ImageResource ESA.Resources.Icons.search48.png}" />
+        <!--<ToolbarItem Name="About" IconImageSource="{mrkupExt:ImageResource ESA.Resources.Icons.about48.png}" Clicked="AboutUs_Clicked" />-->
+        <!--<ToolbarItem Name="Search" IconImageSource="{mrkupExt:ImageResource ESA.Resources.Icons.search48.png}" />-->
         <!--Clicked="Search_Clicked"-->
         <!--<ToolbarItem x:Name="Database" Text="Login" Clicked="Database_Clicked"/>-->
     </ContentPage.ToolbarItems>
@@ -27,11 +27,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
-                
-                <BoxView Grid.ColumnSpan="2" BackgroundColor="#CCC" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15"/>
+                <Label Text="Procedures" FontSize="Medium" TextColor="Black" />
+                <!--<BoxView Grid.ColumnSpan="2" BackgroundColor="#CCC" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15"/>
                 <BoxView x:Name="activeButtonBox" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15" Margin="2"/>
                 <customButton:CustomButton Grid.Column="0" x:Name="ProceduresButton" Text="Procedures" Style="{StaticResource InfoButton}" Clicked="ProceduresButton_Clicked"/>
-                <customButton:CustomButton Grid.Column="1" x:Name="ClinicalScenariosButton" Text="Clinical Scenarios" Style="{StaticResource InfoButton}" Clicked="ClinicalScenariosButton_Clicked"/>
+                <customButton:CustomButton Grid.Column="1" x:Name="ClinicalScenariosButton" Text="Clinical Scenarios" Style="{StaticResource InfoButton}" Clicked="ClinicalScenariosButton_Clicked"/>-->
             </Grid>
             <!--Procedures-->
             <Grid x:Name="ProcedureGrid">

@@ -67,42 +67,46 @@ namespace ESA
 
         }
 
-        private async void AboutUs_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AboutPage(mainViewModel));
-        }
+        // All of the below commented methods can be reused when search, login, etc functionality is implemented
+        
+        //private async void ProceduresButton_Clicked(object sender, EventArgs e)
+        //{
+        //    ProcedureGrid.IsVisible = true;
+        //    // update activeButtonBox
+        //    Rectangle rectangle = ProceduresButton.Bounds;
+        //    rectangle.Width -= 4;
+        //    rectangle.Height -= 4;
+        //    rectangle.Y += 2;
+        //    rectangle.X += 2;
+        //    await activeButtonBox.LayoutTo(rectangle, 500, Easing.CubicInOut);
+        //}
 
-        private async void Search_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CategoriesPage());
-        }
+        
+        //private async void AboutUs_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new AboutPage(mainViewModel));
+        //}
 
-        private async void ProceduresButton_Clicked(object sender, EventArgs e)
-        {
-            ProcedureGrid.IsVisible = true;
-            // update activeButtonBox
-            Rectangle rectangle = ProceduresButton.Bounds;
-            rectangle.Width -= 4;
-            rectangle.Height -= 4;
-            rectangle.Y += 2;
-            rectangle.X += 2;
-            await activeButtonBox.LayoutTo(rectangle, 500, Easing.CubicInOut);
-        }
+        //private async void Search_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new CategoriesPage());
+        //}
 
-        private async void ClinicalScenariosButton_Clicked(object sender, EventArgs e)
-        {
-            ProcedureGrid.IsVisible = false;
-            // update activeButtonBox
-            Rectangle rectangle = ClinicalScenariosButton.Bounds;
-            rectangle.Width -= 2;
-            rectangle.Height -= 4;
-            rectangle.Y += 2;
-            await activeButtonBox.LayoutTo(rectangle, 500, Easing.CubicInOut);
-        }
 
-        private void Database_Clicked(object sender, EventArgs e)
-        {
+        //private async void ClinicalScenariosButton_Clicked(object sender, EventArgs e)
+        //{
+        //    ProcedureGrid.IsVisible = false;
+        //    // update activeButtonBox
+        //    Rectangle rectangle = ClinicalScenariosButton.Bounds;
+        //    rectangle.Width -= 2;
+        //    rectangle.Height -= 4;
+        //    rectangle.Y += 2;
+        //    await activeButtonBox.LayoutTo(rectangle, 500, Easing.CubicInOut);
+        //}
 
-        }
+        //private void Database_Clicked(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }
