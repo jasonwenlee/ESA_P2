@@ -68,7 +68,7 @@ namespace ESA
         }
 
         // All of the below commented methods can be reused when search, login, etc functionality is implemented
-        
+
         //private async void ProceduresButton_Clicked(object sender, EventArgs e)
         //{
         //    ProcedureGrid.IsVisible = true;
@@ -81,11 +81,11 @@ namespace ESA
         //    await activeButtonBox.LayoutTo(rectangle, 500, Easing.CubicInOut);
         //}
 
-        
-        //private async void AboutUs_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new AboutPage(mainViewModel));
-        //}
+
+        private async void AboutUs_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage(mainViewModel));
+        }
 
         //private async void Search_Clicked(object sender, EventArgs e)
         //{
