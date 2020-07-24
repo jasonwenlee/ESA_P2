@@ -32,10 +32,10 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="ESA.UWP.App">
       <uap:VisualElements
-        DisplayName="ESA.UWP"
+        DisplayName="Eye Surgery Application"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ESA.UWP"
+        Description="ESA, an oculoplastic surgery and study encyclopedia mobile application."
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
