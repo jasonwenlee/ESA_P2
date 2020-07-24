@@ -19,15 +19,15 @@
         <StackLayout x:Name="mainStackLayout">
             
             <!--BUTTONS-->
-            <Grid Margin="10,10,10,0">
+            <Grid Margin="0" RowSpacing="0" Padding="10,10,10,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Text="Procedures" FontSize="Medium" TextColor="Black" />
+                <Label Text="Procedures" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
                 <!--<BoxView Grid.ColumnSpan="2" BackgroundColor="#CCC" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15"/>
                 <BoxView x:Name="activeButtonBox" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="15" Margin="2"/>
                 <customButton:CustomButton Grid.Column="0" x:Name="ProceduresButton" Text="Procedures" Style="{StaticResource InfoButton}" Clicked="ProceduresButton_Clicked"/>
