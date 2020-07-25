@@ -18,12 +18,12 @@
             <StackLayout x:Name="pointsLayout" Style="{StaticResource FlexLayout}" BindableLayout.ItemsSource="{Binding KeyPoints}" >
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Spacing="-20" Orientation="Vertical">
-                            <StackLayout Orientation="Vertical">
+                        <StackLayout Spacing="0" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 <!--Key Point Text-->
-                                <Label Text="{Binding Header}" Style="{StaticResource KeyPointBold}" />
+                                <!--<Label Text="{Binding Header}" Style="{StaticResource KeyPointBold}" />-->
                                 <Label Text="{Binding Description}" Style="{StaticResource KeyPoint}" />
-                                <Image Source="{mrkupExt:ImageResource ESA.Resources.Icons.expand_more.png}" Style="{StaticResource DropImage}" >
+                                <Image HorizontalOptions="EndAndExpand" Source="{mrkupExt:ImageResource ESA.Resources.Icons.expand_more.png}" Style="{StaticResource DropImage}" >
                                     <Image.Triggers>
                                         <DataTrigger TargetType="Image" Binding="{Binding HasDiagram}" Value="False">
                                             <Setter Property="IsVisible" Value="False" />
@@ -31,12 +31,12 @@
                                     </Image.Triggers>
                                 </Image>
                                 <!--Timestamp Tap-->
-                                <!--<StackLayout.GestureRecognizers>
+                                <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="KeyPointsContent_TapEventHandler" />
-                                </StackLayout.GestureRecognizers>-->
+                                </StackLayout.GestureRecognizers>
                             </StackLayout>
                             <!--Procedure Link-->
-                            <customButton:CustomButton Text="{Binding RelatedProcedure.ProcedureLink}" Style="{StaticResource RelatedProcedureButton}" Clicked="RelatedProcedureButton_Clicked" >
+                            <customButton:CustomButton Text="{Binding RelatedProcedure.ProcedureLink}" Style="{StaticResource RelatedProcedureButton}" IsVisible="False" Clicked="RelatedProcedureButton_Clicked" >
                                 <customButton:CustomButton.Triggers>
                                     <DataTrigger TargetType="Button" Binding="{Binding HasRelatedProcedure}" Value="False" >
                                         <Setter Property="IsVisible" Value="False" />
@@ -44,7 +44,7 @@
                                 </customButton:CustomButton.Triggers>
                             </customButton:CustomButton>
                             <!--Diagram Dropdown-->
-                            <!--<ImageButton x:Name="diagramBtn" Style="{StaticResource KeyPointDiagram}" Source="{Binding Diagram.Thumbnail}" Clicked="DiagramThumbnail_Clicked" />-->
+                            <ImageButton Style="{StaticResource KeyPointDiagram}" Source="{Binding DiagramURL}" Clicked="DiagramThumbnail_Clicked" />
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
@@ -55,9 +55,10 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="DropImage" TargetType="Image">
-                <Setter Property="WidthRequest" Value="20" />
+                <Setter Property="WidthRequest" Value="32" />
+                <Setter Property="HeightRequest" Value="32" />
                 <Setter Property="HorizontalOptions" Value="End" />
-                <Setter Property="VerticalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
             </Style>
             <Style x:Key="KeyPointDiagram" TargetType="ImageButton">
                 <Setter Property="BackgroundColor" Value="Transparent" />
@@ -65,8 +66,6 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="Margin" Value="0,10" />
             </Style>
-            <!--Key Text-->
-            
         </ResourceDictionary>
     </ContentView.Resources>
 </ContentView>
