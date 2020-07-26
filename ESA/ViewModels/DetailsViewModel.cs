@@ -25,124 +25,135 @@ namespace ESA.ViewModels
             Procedure = proc;
             if (proc != null)
             {
-                GetSteps(proc);
-                GetComplications(proc);
-                GetHistory(proc);
-                GetReferences(proc);
+                Task.Run(async() => {
+                    await GetSteps(proc);
+                    await GetVariations(proc);
+                    await GetComplications(proc);
+                    await GetHistory(proc);
+                    await GetReferences(proc);
+                }).ConfigureAwait(false);
             }
 
         }
 
         // STEPS
-        public void GetSteps(Procedure proc)
+        async Task GetSteps(Procedure proc)
         {
-            int stepNo = 1;
-
-            proc.Steps.Sort(delegate(Step x, Step y)
-            {
-                if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
-                else if (x.Number.ToString() == null) return -1;
-                else if (y.Number.ToString() == null) return 1;
-                else return x.Number.CompareTo(y.Number);
-            });
-
-            foreach (var step in proc.Steps)
-            {
-                step.Number = stepNo;
-                stepNo++;
-                if (!string.IsNullOrEmpty(step.DiagramURL) && IsValidURI(step.DiagramURL))
+            await Task.Run(() => {
+                int stepNo = 1;
+                proc.Steps.Sort(delegate (Step x, Step y)
                 {
-                    step.HasDiagram = true;
-                    UriImageSource diagramUri = new UriImageSource { Uri = new Uri(step.DiagramURL), CachingEnabled = true };
-                    step.Diagram = new Diagram()
+                    if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
+                    else if (x.Number.ToString() == null) return -1;
+                    else if (y.Number.ToString() == null) return 1;
+                    else return x.Number.CompareTo(y.Number);
+                });
+                foreach (var step in proc.Steps)
+                {
+                    step.Number = stepNo;
+                    stepNo++;
+
+                    if (!string.IsNullOrEmpty(step.DiagramURL) && IsValidURI(step.DiagramURL))
                     {
-                        Thumbnail = diagramUri,
-                        VideoSource = ""
-                    };
+
+                        step.HasDiagram = true;
+                        UriImageSource diagramUri = new UriImageSource { Uri = new Uri(step.DiagramURL), CachingEnabled = true };
+                        step.Diagram = new Diagram()
+                        {
+                            Thumbnail = diagramUri,
+                            VideoSource = ""
+                        };
+                    }
                 }
-            }
+            }).ConfigureAwait(false);  
         }
 
         // VARIATIONS
-        public void GetVariations(Procedure proc)
+        async Task GetVariations(Procedure proc)
         {
-            proc.Variations.Sort(delegate (Variation x, Variation y)
-            {
-                if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
-                else if (x.Number.ToString() == null) return -1;
-                else if (y.Number.ToString() == null) return 1;
-                else return x.Number.CompareTo(y.Number);
-            });
-            foreach (var complication in proc.Complications)
-            {
-                if (!string.IsNullOrEmpty(complication.DiagramURL) && IsValidURI(complication.DiagramURL))
+            await Task.Run(() => {
+                proc.Variations.Sort(delegate (Variation x, Variation y)
                 {
-                    complication.HasDiagram = true;
-                    UriImageSource diagramUri = new UriImageSource { Uri = new Uri(complication.DiagramURL), CachingEnabled = true };
-                    complication.Diagram = new Diagram()
+                    if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
+                    else if (x.Number.ToString() == null) return -1;
+                    else if (y.Number.ToString() == null) return 1;
+                    else return x.Number.CompareTo(y.Number);
+                });
+                foreach (var complication in proc.Complications)
+                {
+                    if (!string.IsNullOrEmpty(complication.DiagramURL) && IsValidURI(complication.DiagramURL))
                     {
-                        Thumbnail = diagramUri,
-                        VideoSource = ""
-                    };
+                        complication.HasDiagram = true;
+                        UriImageSource diagramUri = new UriImageSource { Uri = new Uri(complication.DiagramURL), CachingEnabled = true };
+                        complication.Diagram = new Diagram()
+                        {
+                            Thumbnail = diagramUri,
+                            VideoSource = ""
+                        };
+                    }
                 }
-            }
+            }).ConfigureAwait(false);
         }
 
         // COMPLICATIONS
-        public void GetComplications(Procedure proc)
+        async Task GetComplications(Procedure proc)
         {
-            proc.Complications.Sort(delegate (Complication x, Complication y)
-            {
-                if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
-                else if (x.Number.ToString() == null) return -1;
-                else if (y.Number.ToString() == null) return 1;
-                else return x.Number.CompareTo(y.Number);
-            });
-            foreach (var complication in proc.Complications)
-            {
-                if (!string.IsNullOrEmpty(complication.DiagramURL) && IsValidURI(complication.DiagramURL))
+            await Task.Run(() => {
+                proc.Complications.Sort(delegate (Complication x, Complication y)
                 {
-                    complication.HasDiagram = true;
-                    UriImageSource diagramUri = new UriImageSource { Uri = new Uri(complication.DiagramURL), CachingEnabled=true };
-                    complication.Diagram = new Diagram()
+                    if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
+                    else if (x.Number.ToString() == null) return -1;
+                    else if (y.Number.ToString() == null) return 1;
+                    else return x.Number.CompareTo(y.Number);
+                });
+                foreach (var complication in proc.Complications)
+                {
+                    if (!string.IsNullOrEmpty(complication.DiagramURL) && IsValidURI(complication.DiagramURL))
                     {
-                        Thumbnail = diagramUri,
-                        VideoSource = ""
-                    };
+                        complication.HasDiagram = true;
+                        UriImageSource diagramUri = new UriImageSource { Uri = new Uri(complication.DiagramURL), CachingEnabled = true };
+                        complication.Diagram = new Diagram()
+                        {
+                            Thumbnail = diagramUri,
+                            VideoSource = ""
+                        };
+                    }
                 }
-            }
+            }).ConfigureAwait(false);
         }
 
         // HISTORY
-        public void GetHistory(Procedure proc)
+        async Task GetHistory(Procedure proc)
         {
-            proc.History.Sort(delegate (History x, History y)
-            {
-                if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
-                else if (x.Number.ToString() == null) return -1;
-                else if (y.Number.ToString() == null) return 1;
-                else return x.Number.CompareTo(y.Number);
-            });
+            await Task.Run(() => {
+                //proc.History.Sort(delegate (History x, History y)
+                //{
+                //    if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
+                //    else if (x.Number.ToString() == null) return -1;
+                //    else if (y.Number.ToString() == null) return 1;
+                //    else return x.Number.CompareTo(y.Number);
+                //});
+            }).ConfigureAwait(false);
         }
 
         // REFERENCES
-        public void GetReferences(Procedure proc)
+        async Task GetReferences(Procedure proc)
         {
-            int refNo = 1;
-
-            proc.References.Sort(delegate (Reference x, Reference y)
-            {
-                if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
-                else if (x.Number.ToString() == null) return -1;
-                else if (y.Number.ToString() == null) return 1;
-                else return x.Number.CompareTo(y.Number);
-            });
-
-            foreach (var reference in proc.References)
-            {
-                reference.Number = refNo;
-                refNo++;
-            }
+            await Task.Run(() => {
+                //int refNo = 1;
+                //proc.References.Sort(delegate (Reference x, Reference y)
+                //{
+                //    if (x.Number.ToString() == null && y.Number.ToString() == null) return 0;
+                //    else if (x.Number.ToString() == null) return -1;
+                //    else if (y.Number.ToString() == null) return 1;
+                //    else return x.Number.CompareTo(y.Number);
+                //});
+                //foreach (var reference in proc.References)
+                //{
+                //    reference.Number = refNo;
+                //    refNo++;
+                //}
+            }).ConfigureAwait(false);
         }
 
         // CHECK URI

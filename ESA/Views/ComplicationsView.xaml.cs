@@ -28,6 +28,7 @@ namespace ESA.Views
 
         private void ComplicationImage_Clicked(object sender, EventArgs e)
         {
+
             Navigation.PushAsync(new ImagePage(((ImageButton)sender).Source));
         }
     }

@@ -15,6 +15,7 @@ using System.Windows.Input;
 using Expandable;
 using ESA.MarkupExtensions;
 using Windows.UI.Popups;
+using Android.OS;
 
 namespace ESA
 {
@@ -23,7 +24,6 @@ namespace ESA
     {
         public DetailsViewModel procedureViewModel;
         
-
         public StepsView(DetailsViewModel pvm)
         {
             InitializeComponent();
@@ -60,9 +60,11 @@ namespace ESA
 
         private void DiagramThumbnail_Clicked(object sender, EventArgs e)
         {
-            procedureViewModel.VideoName = "Brain_Eyes_Vid.mp4";
-            procedureViewModel.VideoIsProcedure = false;
-            Navigation.PushAsync(new VideoPage(procedureViewModel));
+
+            Console.WriteLine("Sender type: " + sender.GetType());
+            Navigation.PushAsync(new ImagePage(((ImageButton)sender).Source));
+
+            //Navigation.PushAsync(new VideoPage(procedureViewModel));
         }
 
         private void RelatedProcedureButton_Clicked(object sender, EventArgs e)
