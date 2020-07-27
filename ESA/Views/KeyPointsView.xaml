@@ -36,13 +36,13 @@
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
                             <!--Procedure Link-->
-                            <customButton:CustomButton Text="{Binding RelatedProcedure.ProcedureLink}" Style="{StaticResource RelatedProcedureButton}" IsVisible="False" Clicked="RelatedProcedureButton_Clicked" >
+                            <!--<customButton:CustomButton Text="{Binding RelatedProcedure.ProcedureLink}" Style="{StaticResource RelatedProcedureButton}" IsVisible="False" Clicked="RelatedProcedureButton_Clicked" >
                                 <customButton:CustomButton.Triggers>
                                     <DataTrigger TargetType="Button" Binding="{Binding HasRelatedProcedure}" Value="False" >
                                         <Setter Property="IsVisible" Value="False" />
                                     </DataTrigger>
                                 </customButton:CustomButton.Triggers>
-                            </customButton:CustomButton>
+                            </customButton:CustomButton>-->
                             <!--Diagram Dropdown-->
                             <ImageButton Style="{StaticResource KeyPointDiagram}" Source="{Binding DiagramURL}" Clicked="DiagramThumbnail_Clicked" />
                         </StackLayout>

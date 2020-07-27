@@ -23,12 +23,12 @@
                 </BindableLayout.ItemTemplate>
             </StackLayout>
             <!--List Related procedure-->
-            <Label Text="Related Procedures" Style="{StaticResource ViewTitle}" />
+            <!--<Label Text="Related Procedures" Style="{StaticResource ViewTitle}" />
             <StackLayout BindableLayout.ItemsSource="{Binding RelatedProc}" >
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <customButton:CustomButton Text="{Binding LongName}" Style="{StaticResource RelatedProcedureButton}" Clicked="RelatedProcedureButton_Clicked" />
-                        <!--<StackLayout BindableLayout.ItemsSource="{Binding LongName}">
+                        <StackLayout BindableLayout.ItemsSource="{Binding LongName}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Spacing="5" Orientation="Horizontal">
@@ -36,10 +36,10 @@
                                     </StackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
-                        </StackLayout>-->
+                        </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
-            </StackLayout>
+            </StackLayout>-->
         </StackLayout>
     </ContentView.Content>
     <ContentView.Resources>
