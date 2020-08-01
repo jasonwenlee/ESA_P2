@@ -22,7 +22,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5" />
                     <ColumnDefinition Width="38" />
-                    <ColumnDefinition Width="38" />
+                    <ColumnDefinition Width="84" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="5" />
@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
                 <BoxView BackgroundColor="#111" Grid.ColumnSpan="9" HeightRequest="42"/>
                 <ImageButton x:Name="BackCollapsedButton" Source="{mrkupExt:ImageResource ESA.Resources.VideoPlayer.back.png}" Clicked="BackButton_Clicked" Style="{StaticResource VideoControlsCollapse}"  Grid.Column="1" />
-                <Label  Text="{Binding Procedure.ShortName}" Style="{StaticResource VideoCollapseTitle}" Grid.Column="3"/>
+                <Label  Text="{Binding Procedure.ShortName}" Style="{StaticResource VideoCollapseTitle}" Grid.Column="3" LineBreakMode="TailTruncation" HorizontalOptions="Start"/>
                 <Label x:Name="PositionCollapsedLabel" Text="{Binding Source={x:Reference videoPlayer}, Path=Position, StringFormat='{0:h\\:mm\\:ss}'}" Style="{StaticResource VideoCollapsePosition}" Grid.Column="4" />
                 <ImageButton x:Name="playPauseCollapsedButton" Source="{mrkupExt:ImageResource ESA.Resources.VideoPlayer.pause.png}" Clicked="PlayPauseButton_Clicked" Style="{StaticResource VideoControlsCollapse}" Grid.Column="6" />
                 <ImageButton x:Name="ExpandButton" Source="{mrkupExt:ImageResource ESA.Resources.VideoPlayer.expand.png}" Clicked="CollapseButton_Clicked" Style="{StaticResource VideoControlsCollapse}" Grid.Column="7" />
